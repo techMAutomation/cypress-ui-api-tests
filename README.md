@@ -1,4 +1,4 @@
-This project consists of examples for both:
+This project consists of examples for the followig tests:
 - UI
 - API
 
