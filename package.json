@@ -1,0 +1,19 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "cypress ui and api tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "npx cypress open",
+    "cy:run:feature": "npx cypress run --env grepTags=@login",
+    "cy:run:regression": "npx cypress run --env grepTags=@regression"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cypress/grep": "^3.1.4",
+    "cypress": "^12.5.1",
+    "cypress-file-upload": "^5.0.8"
+  }
+}
