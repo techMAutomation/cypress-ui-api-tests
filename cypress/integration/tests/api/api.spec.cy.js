@@ -30,15 +30,19 @@ describe('API Tests',  {tags: ['@apiSmoke', '@apiRegression']}, () => {
     });
 
     it('Test to Get Specific User details', () => {
-        const userId = '350062';
+        const userId = '398411'; //valid user
         cy.request({
             method: 'GET',
             url: Cypress.env('apiUrl')  + '/users/'+ userId,
             failOnStatusCode: false,
         }).then(({body}) => {
             cy.log('response :: ' + JSON.stringify(body));
-            if (body !== null) {
-                const id = JSON.stringify(body.id);
+            let id = JSON.stringify(body.id);
+            cy.log('id :: ' + id);
+            if (id == undefined) {
+                expect(id).to.be.undefined;
+                expect(body.message).equal('Resource not found');
+            } else {
                 expect(id).to.include(userId);
             }
         }); 
